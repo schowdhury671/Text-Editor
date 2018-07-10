@@ -1,2 +1,1 @@
-# Text-Editor
-Implementation of vi like text editor
+# vi_editor
