@@ -124,6 +124,17 @@ void outputinit(char out[1000][1000])
 		}
 	}
 }
+void freebufferasync(struct buffer *bu){
+	free(bu->str);
+}
+void addbufferasync(struct buffer *bu,char *s,int len)
+{
+	char* nw = (char*)realloc(bu->str,bu->len+len);	
+	if(nw == NULL)return;
+	memcpy(&nw[bu->len],s,len);
+	bu->str=nw;
+	bu->len+=len;	
+}
 void refreshscreen(const vector<char>&)
 {
 	struct buffer bu = ABUF_INIT ;
